@@ -3,7 +3,8 @@ import { Avatar } from "@material-ui/core";
 import React from "react";
 import { Gif } from "@giphy/react-components";
 
-function Post({ message }) {
+function Post(prop) {
+  const { gif, message } = prop.message;
   return (
     <PostContainer>
       <ProfileInfo>
@@ -11,10 +12,8 @@ function Post({ message }) {
         <h5>Demo User</h5>
       </ProfileInfo>
       <PostMedia>
-        <p>{message.message}</p>
-        {message.gif && (
-          <Gif width={"100%"} height={300} gif={message.gif}></Gif>
-        )}
+        <p>{message && message}</p>
+        {gif && <Gif width={"100%"} height={300} gif={gif}></Gif>}
       </PostMedia>
     </PostContainer>
   );
